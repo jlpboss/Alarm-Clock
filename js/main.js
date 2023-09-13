@@ -1,5 +1,6 @@
 const clock = document.querySelector(".clock");
-const alarmTime = document.querySelector(".alarmTime");
+const test = document.querySelector(".test");
+const alarmTime = document.getElementById("alarmTime");
 const alarmSound = document.getElementById("sound");
 
 function addZero(num){
@@ -42,9 +43,15 @@ function isAlarm(){
     let hou = addZero(today.getHours());
     let min = addZero(today.getMinutes());
     let time = hou + ":" + min;
+
+    test.textContent = alarmTime.value + " " + time;
+
+    console.log(alarmTime.value + " " + time);
     
-    if (alarmTime == time) {
-        alarm();
+    if (alarmTime.value == time) {
+        if (today.getSeconds() < 2){
+            alarm();
+        }
     }
 
 }
