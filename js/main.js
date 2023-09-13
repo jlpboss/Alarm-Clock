@@ -2,6 +2,7 @@ const clock = document.querySelector(".clock");
 const test = document.querySelector(".test");
 const alarmTime = document.getElementById("alarmTime");
 const alarmSound = document.getElementById("sound");
+const btn = document.getElementById("stop")
 
 function addZero(num){
     if (num < 10){
@@ -64,3 +65,6 @@ function update(){
 updateTime();
 setInterval(update, 1000);
 
+btn.addEventListener("click", () => {
+    alarm("pause")
+});
