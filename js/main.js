@@ -34,8 +34,12 @@ function updateTime(){
     clock.textContent = time;
 }
 
-function alarm(){
-    alarmSound.play();
+function alarm(act){
+    if (act == "play"){
+        alarmSound.play();
+    }else if (act == "pause"){
+        alarmSound.pause();
+    }
 }
 
 function isAlarm(){
@@ -46,14 +50,17 @@ function isAlarm(){
 
     if (alarmTime.value == time) {
         if (today.getSeconds() < 2){
-            alarm();
+            alarm("play");
         }
     }
 
 }
 
+function update(){
+    updateTime();
+    isAlarm();
+}
 
 
-setInterval(updateTime, 1000);
-setInterval(isAlarm, 1000);
+setInterval(update, 1000);
 
