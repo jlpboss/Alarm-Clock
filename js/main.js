@@ -61,6 +61,6 @@ function update(){
     isAlarm();
 }
 
-
+updateTime();
 setInterval(update, 1000);
 
