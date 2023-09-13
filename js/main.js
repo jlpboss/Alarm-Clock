@@ -1,4 +1,6 @@
-const clock = document.querySelector('.clock');
+const clock = document.querySelector(".clock");
+const alarmTime = document.querySelector(".alarmTime");
+const alarmSound = document.getElementById("sound");
 
 function addZero(num){
     if (num < 10){
@@ -31,9 +33,24 @@ function updateTime(){
     clock.textContent = time;
 }
 
+function alarm(){
+    alarmSound.play();
+}
 
+function isAlarm(){
+    let today = new Date();
+    let hou = addZero(today.getHours());
+    let min = addZero(today.getMinutes());
+    let time = hou + ":" + min;
+    
+    if (alarmTime == time) {
+        alarm();
+    }
+
+}
 
 
 
 setInterval(updateTime, 1000);
+setInterval(isAlarm, 1000);
 
