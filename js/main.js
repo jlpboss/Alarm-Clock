@@ -44,10 +44,6 @@ function isAlarm(){
     let min = addZero(today.getMinutes());
     let time = hou + ":" + min;
 
-    test.textContent = alarmTime.value + " " + time;
-
-    console.log(alarmTime.value + " " + time);
-    
     if (alarmTime.value == time) {
         if (today.getSeconds() < 2){
             alarm();
