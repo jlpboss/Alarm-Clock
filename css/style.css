@@ -1,4 +1,9 @@
 
+@font-face {
+    font-family: "sevenSegment";
+    src: url(../img/sevenSegment.ttf) format('truetype');
+}
+
 body{
     text-align: center;
     font-size: 50px;
@@ -18,8 +23,8 @@ button{
 
 p {
     padding: 50px;
-    font-size: 100px;
+    font-size: 130px;
     background-color: black;
-    color: white;
-    font-family: "Lucida Console", "Courier New", monospace;
+    color: red;
+    font-family: 'sevenSegment', sans-serif;
 }

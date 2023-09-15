@@ -3,6 +3,8 @@ const test = document.querySelector(".test");
 const alarmTime = document.getElementById("alarmTime");
 const alarmSound = document.getElementById("sound");
 const btn = document.getElementById("stop")
+let flashing = false;
+let flashState = true;
 
 function addZero(num){
     if (num < 10){
@@ -24,9 +26,12 @@ function updateTime(){
         if (today.getHours() > 12){
             hou = addZero(today.getHours() - 12);
             time = hou + ":" + min + ":" + sec + " PM";
-        }else {
+        }else if(today.getHours() != 12) {
             hou = addZero(today.getHours());
             time = hou + ":" + min + ":" + sec + " AM";
+        } else{
+            hou = addZero(today.getHours());
+            time = hou + ":" + min + ":" + sec + " PM";
         }
     } else{
         hou = addZero(today.getHours());
@@ -38,8 +43,23 @@ function updateTime(){
 function alarm(act){
     if (act == "play"){
         alarmSound.play();
+        flashing = true;
     }else if (act == "pause"){
         alarmSound.pause();
+        flashing = false;
+        document.getElementById("clock").style.backgroundColor = "black";
+    }
+}
+
+function flash(){
+    if (flashState == true){
+        document.getElementById("clock").style.backgroundColor = "rgb(110, 110, 110)";
+        flashState = false;
+
+    } else{
+        document.getElementById("clock").style.backgroundColor = "black";
+        flashState = true;
+
     }
 }
 
@@ -60,6 +80,9 @@ function isAlarm(){
 function update(){
     updateTime();
     isAlarm();
+    if (flashing) {
+        flash();
+    }
 }
 
 updateTime();
