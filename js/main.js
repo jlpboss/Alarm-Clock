@@ -38,8 +38,10 @@ function updateTime(){
 function alarm(act){
     if (act == "play"){
         alarmSound.play();
+        //document.getElementById("clock").style.background-color = "blue";
     }else if (act == "pause"){
         alarmSound.pause();
+        //document.getElementById("clock").style.background-color = "black";
     }
 }
 
